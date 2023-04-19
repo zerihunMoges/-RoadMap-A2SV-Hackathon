@@ -4,7 +4,7 @@ import { Typography, Link } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: "rebeccapurple",
     color: theme.palette.primary.contrastText,
     padding: theme.spacing(6),
     marginTop: theme.spacing(4),
