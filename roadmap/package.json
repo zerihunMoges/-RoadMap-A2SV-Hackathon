@@ -23,6 +23,10 @@
     "next": "13.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+<<<<<<< HEAD
     "talkjs": "^0.15.9"
+=======
+    "react-icons": "^4.8.0"
+>>>>>>> 17538c3 (enrolled page completed)
   }
 }

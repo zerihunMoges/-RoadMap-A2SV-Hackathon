@@ -1,0 +1,48 @@
+.lecturecardcontainer{
+    border-radius: 9px;
+    padding: 1rem;
+    background-color: white;
+    margin: 2rem;
+}
+.titleholder{
+    display: flex;
+    justify-content: space-between;
+}
+.lecturetitle{
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: capitalize;
+}
+.lecturetimeholder{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.lecturetime{
+    color: #6E798C;
+}
+.lecturetimeicon{
+    color: #6E798C;
+    
+}
+
+.lecturedescription{
+    color: #6E798C;
+    text-align: left;
+    /* max-width: 900px; */
+    margin-top: 0;
+}
+.lecturebuttoncontainer{
+    display: flex;
+    justify-content: flex-end;
+
+}
+.lecturelinkbutton{
+    padding: .5rem 4rem;
+    background-color: #4A3C98;
+    border: none;
+    color: white;
+    border-radius: 7px;
+    font-weight: 400;
+}
