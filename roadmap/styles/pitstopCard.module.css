@@ -1,0 +1,18 @@
+
+.pitstopcardcontainer{
+    display: flex;
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-bottom-width: .1rem;
+    border-bottom-color: #F0F0F0;
+    margin: 1rem;
+
+
+}
+.pitstoptime{
+    color:#9CA0A4;
+}
+.pitstoptitle{
+    text-transform: capitalize;
+    color:#4A3C98;
+}
