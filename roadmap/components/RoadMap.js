@@ -3,11 +3,8 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
-import { deepOrange } from '@mui/material/colors';
 import { IconButton, ListItem, ListItemAvatar, ListItemText, Rating } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
@@ -110,7 +107,7 @@ export default function RoadMap() {
         
       </CardActions>
       <CardContent> <Rating name="size-small" defaultValue={2}  size="small" />
-</CardContent>
+      </CardContent>
         </Card>
 
     
