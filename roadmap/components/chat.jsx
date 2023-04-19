@@ -33,7 +33,7 @@ export default function MyChatComponent() {
     if (talkLoaded) {
       // Safe to use the SDK here
       console.log(user);
-      const currentUser = new Talk.User({...user, name: user.displayName ? user.displayName: user.email, id: user.uid});
+      const currentUser = new Talk.User({...user, name: user && user.displayName ? user.displayName: user.email, id: user.uid});
 
 
       const session = new Talk.Session({
