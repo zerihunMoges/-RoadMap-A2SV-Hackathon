@@ -1,4 +1,5 @@
 import RoadMap from '@/components/RoadMap'
+import RoadMaps from '@/components/RoadMaps'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -6,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <>
-         <RoadMap></RoadMap>
+         <RoadMaps></RoadMaps>
      
          </>
   )
