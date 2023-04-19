@@ -1,0 +1,21 @@
+.enrolledcontainer{
+}
+.rightsidetitle{
+    margin: 1rem;
+    color:#4A3C98;
+}
+.rightside{
+    height: 100vh;
+    position: fixed;
+    overflow-y: scroll;
+    width: 40%;
+
+}
+.leftside{
+    position: fixed;
+    right: 0;
+    height: 100vh;
+    overflow-y: scroll;
+    width: 60%;
+    background-color: #EFF0F3;
+}

@@ -1,12 +1,22 @@
+import RoadMap from '@/components/RoadMap'
+import RoadMaps from '@/components/RoadMaps'
 import { Inter } from 'next/font/google'
+import { useAuth } from '@/context/AuthContext'
+import dynamic from 'next/dynamic'
 
-const inter = Inter({ subsets: ['latin'] })
+const TalkJS = dynamic(() => import('@/components/chat'), {
+  ssr: false
+})
 
 export default function Home() {
+  const {logout} = useAuth()
+
   return (
     <>
-         hello 
+         <RoadMaps></RoadMaps>
      
+         <TalkJS />
+         <button onClick={()=>logout()}>logout</button>
          </>
   )
 }
