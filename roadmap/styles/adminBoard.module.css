@@ -1,0 +1,41 @@
+.adminboardcardcontainer{
+    display: flex;
+    justify-content: space-between;
+    /* background-color: orange; */
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    padding: 1rem 3rem;
+    box-shadow: 2px 4px 10px rgb(0, 0, 0,.2);
+    background-color: white;
+}
+.adminboardcardcontainer:hover{
+    border-style:solid;
+    border-color: #4A3C98;
+}
+
+.admincardleft{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.admincardrighttitle{
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    margin-bottom: 0;
+    color: #4A3C98;
+}
+.admincardrightrating{
+    margin-top: 0;
+}
+.admincardrightduration{
+    color:#9CA0A4;
+}
+.admincardrightenrolledstd{
+    text-transform: capitalize;
+    color:#9CA0A4;
+}
+.admincardrightenrolledstdbold{
+    color: #4A3C98;
+    font-weight: 600;
+}

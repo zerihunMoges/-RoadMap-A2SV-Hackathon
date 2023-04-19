@@ -1,0 +1,24 @@
+.admincontainer{
+    background-color:#EFF0F3 ;
+    height: 100vh;
+    width: 100vw;
+}
+.adminroadmapbuttoncontainer{
+    display: flex;
+    justify-content: flex-end;
+}
+.adminroadmapbutton{
+    padding: 1rem 4rem;
+    background-color: #4A3C98;
+    border: none;
+    color: white;
+    border-radius: 7px;
+    font-weight: 400;
+    margin: 2rem;
+    text-transform: capitalize;
+}
+
+.admincardcontainer{
+    max-width: 900px;
+    margin: auto;
+}
