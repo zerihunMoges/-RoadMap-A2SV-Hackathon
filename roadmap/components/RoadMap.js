@@ -109,7 +109,8 @@ export default function RoadMap() {
         </Typography></>
         
       </CardActions>
-      <Rating name="size-small" defaultValue={2}  size="small" />
+      <CardContent> <Rating name="size-small" defaultValue={2}  size="small" />
+</CardContent>
         </Card>
 
     
