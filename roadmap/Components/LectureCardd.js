@@ -1,6 +1,6 @@
 import React from 'react'
 import lecurestyle from "../styles/lectureCardd.module.css"
-import {HiOutlineClock} from "react-icons/hi"
+// import {HiOutlineClock} from "react-icons/hi"
 
 const LectureCardd = ({data}) => {
   return (
@@ -8,7 +8,7 @@ const LectureCardd = ({data}) => {
         <div className={lecurestyle.titleholder}>
             <p className={lecurestyle.lecturetitle}>{data.title}</p>
             <div className={lecurestyle.lecturetimeholder} >
-            <HiOutlineClock size = "1.5rem" className={lecurestyle.lecturetimeicon}></HiOutlineClock>
+            {/* <HiOutlineClock size = "1.5rem" className={lecurestyle.lecturetimeicon}></HiOutlineClock> */}
             <p className={lecurestyle.lecturetime}> <span>{data.duration}</span>min</p>
 
             </div>

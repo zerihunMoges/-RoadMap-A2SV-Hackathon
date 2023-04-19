@@ -10,18 +10,19 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     marginRight: theme.spacing(2),
     textShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)',
-    textAlign : 'center'
+    justifyContent: 'center'
+    
   },
   title: {
     flexGrow: 1,
     fontWeight: 'bold',
-    textAlign : 'center'
+  
   },
   road: {
     color: '#663399',
     fontSize: '30px',
     textShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)',
-    textAlign : 'center'
+
   },
   map: {
     color: '#000000',
@@ -41,6 +42,7 @@ function Navbar() {
         </Typography>
         <Typography variant="h6" className={classes.title}>
           {/* Add any additional text here */}
+          
         </Typography>
       </Toolbar>
     </AppBar>
