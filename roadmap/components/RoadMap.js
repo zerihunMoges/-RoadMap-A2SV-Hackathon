@@ -27,16 +27,17 @@ export default function RoadMap() {
     
     return (
 
-        <>
-       
+   
         <Card sx={{ 
-    margin: 50,
+    margin: 2,
+    marginTop: 15,
+    
     borderRadius: 2, // 16px
     transition: '0.3s',
     boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)',
     position: 'relative',
     maxWidth: 300,
-    marginLeft: 'auto',
+    
     overflow: 'initial',
     background: '#ffffff',
     
@@ -108,10 +109,10 @@ export default function RoadMap() {
         </Typography></>
         
       </CardActions>
-      <Rating name="size-small" defaultValue={2} size="small" />
+      <Rating name="size-small" defaultValue={2}  size="small" />
         </Card>
 
-        </>
+    
     );
 }
 
