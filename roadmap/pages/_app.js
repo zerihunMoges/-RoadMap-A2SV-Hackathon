@@ -1,21 +1,24 @@
-import { ChakraProvider } from '@chakra-ui/react'
+import React from 'react';
+import { CacheProvider } from '@emotion/react';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 
-import { extendTheme } from '@chakra-ui/react'
+import createEmotionCache from '../utility/createEmotionCache';
+import lightTheme from '../styles/theme/lightTheme';
+import '../styles/globals.css';
 
-const colors = {
-  brand: {
-   'primary': '#FFFFF'
-  },
-}
+const clientSideEmotionCache = createEmotionCache();
 
-export const theme = extendTheme({ colors })
+const MyApp = (props) => {
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
-function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
-  )
-}
+    <CacheProvider value={emotionCache}>
+      <ThemeProvider theme={lightTheme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </CacheProvider>
+  );
+};
 
 export default MyApp;
