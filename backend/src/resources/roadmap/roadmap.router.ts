@@ -2,7 +2,8 @@ import { Router } from 'express'
 import {
   createRoadmap,
   fetchAllRoadmaps,
-  fetchMyOrganizationRoadmaps
+  fetchMyOrganizationRoadmaps,
+  enroll
 } from './roadmap.controllers'
 import { respond } from '../../middlewares/respond'
 import { verifyToken } from '../../middlewares/verifyToken'
@@ -33,6 +34,13 @@ roadmapRouter.post(
   '/',
   verifyToken,
   createRoadmap,
+  respond
+)
+
+roadmapRouter.post(
+  '/enroll/:id',
+  verifyToken,
+  enroll,
   respond
 )
 
