@@ -6,6 +6,7 @@ import SlideShow from "@/components/slideshow";
 import IconBox from "@/components/iconbox";
 import { Computer as ComputerIcon } from '@material-ui/icons';
 import { School as SchoolIcon } from '@material-ui/icons';
+import { data } from "../mock";
 
 const StyledLink = styled("a")({
   textDecoration: "none"
@@ -95,7 +96,7 @@ export default function HomePage() {
 
         <CustomButton text="All Courses"></CustomButton>
       </Box>
-      <SlideShow cardData={[1, 2, 3,4,5]}></SlideShow>
+      <SlideShow cardData={data}></SlideShow>
       <Box display="flex" marginTop={12}>
         <Box
           style={{ marginRight: "32px", marginBottom: "24px" }}

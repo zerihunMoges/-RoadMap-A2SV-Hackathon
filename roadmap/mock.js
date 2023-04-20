@@ -1,4 +1,4 @@
-export default users = [
+export const users = [
     {
         id: "1",
         name: "Zera",
@@ -27,4 +27,75 @@ export default users = [
         
     },
 
+]
+export const data = [
+    {
+        id: 1,
+        title:"React Js",
+        duration:1200,
+        description:"React is a popular JavaScript library used for building user interfaces (UIs) and front-end web applications. Developed by Facebook, React allows developers to create dynamic and responsive UI components that can be easily reused across multiple web pages or applications.",
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzqHkMPTDyvwARhHDvB2nEWkCP__e7bwANJQ&usqp=CAU", 
+        rating:4.5, 
+        enrolled:12,
+        author: "Africa to silicon valley",
+        pitStops: [{
+            title: "Introduction to React Basics" ,
+            duration:200,
+            lectures: [
+                {
+                    title: "What is react" ,
+                    duration:25,
+                    description: "React is a popular JavaScript library used for building user interfaces (UIs) and front-end web applications. Developed by Facebook, React allows developers to create dynamic and responsive UI components that can be easily reused across multiple web pages or applications",
+                    link: ["https://react.dev/"]
+                }
+            ],
+        }],
+
+    },
+    {
+        id: 2, 
+        title:"React Js",
+        duration:1200,
+        description:"React is a popular JavaScript library used for building user interfaces (UIs) and front-end web applications. Developed by Facebook, React allows developers to create dynamic and responsive UI components that can be easily reused across multiple web pages or applications.",
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzqHkMPTDyvwARhHDvB2nEWkCP__e7bwANJQ&usqp=CAU", 
+        rating:4.5, 
+        enrolled:12,
+        author: "Africa to silicon valley",
+        pitStops: [{
+            title: "Introduction to React Basics" ,
+            duration:200,
+            lectures: [
+                {
+                    title: "What is react" ,
+                    duration:25,
+                    description: "React is a popular JavaScript library used for building user interfaces (UIs) and front-end web applications. Developed by Facebook, React allows developers to create dynamic and responsive UI components that can be easily reused across multiple web pages or applications",
+                    link: ["https://react.dev/"]
+                }
+            ],
+        }],
+
+    },
+    {
+        id: 3,
+        title:"React Js",
+        duration:1200,
+        description:"React is a popular JavaScript library used for building user interfaces (UIs) and front-end web applications. Developed by Facebook, React allows developers to create dynamic and responsive UI components that can be easily reused across multiple web pages or applications.",
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzqHkMPTDyvwARhHDvB2nEWkCP__e7bwANJQ&usqp=CAU", 
+        rating:4.5, 
+        enrolled:12,
+        author: "Africa to silicon valley",
+        pitStops: [{
+            title: "Introduction to React Basics" ,
+            duration:200,
+            lectures: [
+                {
+                    title: "What is react" ,
+                    duration:25,
+                    description: "React is a popular JavaScript library used for building user interfaces (UIs) and front-end web applications. Developed by Facebook, React allows developers to create dynamic and responsive UI components that can be easily reused across multiple web pages or applications",
+                    link: ["https://react.dev/"]
+                }
+            ],
+        }],
+
+    }
 ]

@@ -3,7 +3,7 @@ import React from 'react'
 
 function roadmaps() {
   return (
-    <RoadMaps></RoadMaps>
+    <RoadMaps />
   )
 }
 
