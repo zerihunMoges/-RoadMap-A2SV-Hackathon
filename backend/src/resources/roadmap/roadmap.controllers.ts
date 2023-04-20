@@ -143,3 +143,34 @@ export const enroll = async (
   }
   return next()
 }
+
+export const fetchEnrolled = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { _id } = res.locals
+
+  const user = await (await User.findById(_id)).populate({
+    path: "enrolled",
+    populate: { 
+      path: "pitstops", 
+      populate: { 
+        path: "lectures"
+      }}
+  })
+
+  if (!user) {
+    res.locals.json = {
+      statusCode: 400,
+      message: 'user not found'
+    }
+    return next()
+  }
+
+  res.locals.json = {
+    statusCode: 200,
+    data: user.enrolled
+  }
+  return next()
+}

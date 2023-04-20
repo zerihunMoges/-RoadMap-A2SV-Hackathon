@@ -3,7 +3,8 @@ import {
   createRoadmap,
   fetchAllRoadmaps,
   fetchMyOrganizationRoadmaps,
-  enroll
+  enroll,
+  fetchEnrolled
 } from './roadmap.controllers'
 import { respond } from '../../middlewares/respond'
 import { verifyToken } from '../../middlewares/verifyToken'
@@ -17,11 +18,12 @@ roadmapRouter.get(
   respond
 )
 
-// roadmapRouter.get(
-//   '/enrolled',
-//   fetchAllRoadmaps,
-//   respond
-// )
+roadmapRouter.get(
+  '/enrolled',
+  verifyToken,
+  fetchEnrolled,
+  respond
+)
 
 roadmapRouter.get(
   '/my',
