@@ -16,10 +16,12 @@ import 'react-quill/dist/quill.snow.css';
 import { AddCircleOutlineRounded, AddCircleRounded, AddOutlined, DeleteOutlined, PlayCircleOutlineRounded } from '@mui/icons-material';
 import PitstopCard from './PitstopCard';
 import dynamic from "next/dynamic";
+import { useAuth } from '@/context/AuthContext';
 
 const ReactQuill = dynamic(import('react-quill'), { ssr: false })
 
 function CreateRoadMap() {
+  const {roadMaps, setRoadMaps} = useAuth();
     const [open, setOpen] = React.useState(false);
     const [openLecture, setOpenLecture] = React.useState(false);
     const [pitStop, setPitStop] = useState({});
@@ -41,6 +43,8 @@ function CreateRoadMap() {
     
 
     const handleAddRoadMap = () =>{
+      setRoadMaps([...roadMaps,roadMap])
+
 
     }
 
@@ -138,7 +142,7 @@ function CreateRoadMap() {
       
 
       
-      <div style={{display:"flex", justifyContent:"space-between"}} >
+      <div style={{display:"flex", justifyContent:"space-between", marginTop:16}} >
         <Button sx={{
             color: 'gray',
             borderColor: 'gray'

@@ -4,8 +4,11 @@ import RoadMap from './RoadMap'
 import { data } from '../mock'
 import Link from 'next/link'
 import SearchBar from './SearchBar'
+import { useAuth } from '@/context/AuthContext'
 
 function RoadMaps() {
+    const {roadMaps} = useAuth()
+    // const data = roadMaps
     const handleSearch = (value) => {
         console.log(value)
     }

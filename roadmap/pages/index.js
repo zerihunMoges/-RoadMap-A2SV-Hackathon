@@ -8,12 +8,16 @@ import { Computer as ComputerIcon } from '@material-ui/icons';
 import { School as SchoolIcon } from '@material-ui/icons';
 import { data } from "../mock";
 import { useRouter } from "next/router";
+import { useAuth } from "@/context/AuthContext";
 
 const StyledLink = styled("a")({
   textDecoration: "none"
 });
+
 export default function HomePage() {
+  const {roadMaps} = useAuth()
   const router = useRouter()
+  // const data = roadmaps.data;
   return (
     <div style={{marginRight:"10%", marginLeft:"10%"}}>
     <Box maxWidth="1500px" mx="auto" marginTop='100px' >
@@ -35,35 +39,8 @@ export default function HomePage() {
           </Typography>
           <Box display="flex" marginTop={8}>
             <Box style={{ marginRight: "16px" }}>
-              {/* <Typography
-                variant="h4"
-                fontWeight="bold"
-                style={{ color: "rebeccapurple" }}
-              > */}
-                {/* 30M */}
-              {/* </Typography> */}
-              {/* <Typography variant="caption">Students learning</Typography> */}
+              
             </Box>
-            {/* <Box style={{ marginRight: "16px" }}>
-              <Typography
-                variant="h4"
-                fontWeight="bold"
-                style={{ color: "rebeccapurple" }}
-              >
-                300M+
-              </Typography>
-              <Typography variant="caption">Oppotunities got</Typography>
-            </Box> */}
-            {/* <Box style={{ marginRight: "16px" }}>
-              <Typography
-                variant="h4"
-                fontWeight="bold"
-                style={{ color: "rebeccapurple" }}
-              >
-                400+
-              </Typography>
-              <Typography variant="caption">Groups created</Typography>
-            </Box> */}
           </Box>
 
           <Box display="flex" marginTop={8}>
@@ -108,7 +85,6 @@ export default function HomePage() {
         >
           <Typography fontWeight="bold" variant="h3">
             <span id="about" style={{ color: "rebeccapurple" }}>What Sets</span> Us Apart
-            
           </Typography>
           <Box marginTop={6}></Box>
           <Typography
