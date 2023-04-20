@@ -61,10 +61,7 @@ export default function MyChatComponent() {
   }, [talkLoaded]);
 
   return(
-    <Container>
-      <Box sx={{ bgcolor: 'white', height: '80vh', paddingTop: 7}} ref={inboxEl} />
-  </Container>
-
+      <Box sx={{ bgcolor: 'white', height: '80vh', width: "85vw", margin:7}} ref={inboxEl} />
   )
   
 

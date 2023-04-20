@@ -13,7 +13,7 @@ import { BorderAllRounded } from '@mui/icons-material';
 function RoadMapDetail() {
   const data = [{title:"the title of the pitstop",  duration:380,}, {title:"Real life is a blessing",  duration:380,},{title:"Not if they fucking for Nyash",  duration:380,}]
   return (
-    <div style={{marginRight: "13%", marginLeft: "13%"}}>
+    <div style={{marginRight: "10%", marginLeft: "10%"}}>
 
       <div style={{ display:"flex", flexDirection:"column", gap:"20px", alignItems:'center', paddingTop: 40}}>
         <Typography variant="h4" component="h2" fontWeight="bold" color="text.secondary">

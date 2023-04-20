@@ -6,8 +6,8 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: "rebeccapurple",
     color: theme.palette.primary.contrastText,
-    padding: theme.spacing(6),
-    marginTop: theme.spacing(4),
+    padding: theme.spacing(1),
+    marginTop: theme.spacing(5),
   },
 }));
 

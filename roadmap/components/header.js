@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Button, Typography } from '@material-ui/core';
+import { Toolbar } from '@mui/material';
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -8,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)',
   },
   logo: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
     textShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)',
     justifyContent: 'center'
     
@@ -22,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
     color: '#663399',
     fontSize: '30px',
     textShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)',
-
   },
   map: {
     color: '#000000',
@@ -33,17 +34,15 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar() {
   const classes = useStyles();
+  const router = useRouter()
 
   return (
     <AppBar position="static" className={classes.appBar}>
       <Toolbar>
         <Typography variant="h6" className={classes.logo}>
-          <span className={classes.road}>Road</span><span className={classes.map}>Map</span>
+          <Button onClick={()=>router.push('/')}><span className={classes.road}>Road</span><span className={classes.map}>Map</span></Button>
         </Typography>
-        <Typography variant="h6" className={classes.title}>
-          {/* Add any additional text here */}
-          
-        </Typography>
+
       </Toolbar>
     </AppBar>
   );
