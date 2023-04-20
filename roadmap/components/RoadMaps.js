@@ -3,9 +3,16 @@ import React from 'react'
 import RoadMap from './RoadMap'
 import { data } from '../mock'
 import Link from 'next/link'
+import SearchBar from './SearchBar'
 
 function RoadMaps() {
+    const handleSearch = (value) => {
+        console.log(value)
+    }
     return (
+        <Box sx={{display: 'flex', flexDirection: 'column'}}>
+
+        <SearchBar handleSearch={handleSearch}></SearchBar>
         <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', backgroundColor: 'FBF8F6', padding: 2}}>
             {
                 data.map(single=>{
@@ -17,6 +24,8 @@ function RoadMaps() {
                     )
                 })
             }
+        </Box>
+
         </Box>
     )
 }

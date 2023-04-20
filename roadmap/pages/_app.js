@@ -8,6 +8,7 @@ import lightTheme from '../styles/theme/lightTheme';
 import Header from '../components/header'
 import Footer from '../components/footer'
 
+
 const clientSideEmotionCache = createEmotionCache();
 
 const MyApp = (props) => {
