@@ -27,8 +27,8 @@ export const fetchAllRoadmaps = async (
 
 
 export const createRoadmap = async (
-  req: Request,
-  res: Response,
+  req,
+  res,
   next: NextFunction
 ) => {
   const { _id } = res.locals
@@ -55,7 +55,15 @@ export const createRoadmap = async (
 
   }
 
-  const roadmap = await (await Roadmap.create({...req.body, pitstops: finalStops, organization: user})).populate({
+  var image: any
+  if (req.file) {
+    const result = await uploadImage(req.file)
+    if (result) {
+      image = result.data.secure_url
+    }
+  }
+
+  const roadmap = await (await Roadmap.create({...req.body, pitstops: finalStops, organization: user, image: image})).populate({
     path: 'pitstops',
     // Get lectures of pitstops - populate the 'lectures' array for every pitstop
     populate: { path: 'lectures' }

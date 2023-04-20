@@ -35,6 +35,7 @@ roadmapRouter.get(
 roadmapRouter.post(
   '/',
   verifyToken,
+  filterImage.single('image'),
   createRoadmap,
   respond
 )
