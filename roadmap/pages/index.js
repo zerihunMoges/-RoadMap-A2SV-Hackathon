@@ -12,6 +12,16 @@ import { useRouter } from "next/router";
 const StyledLink = styled("a")({
   textDecoration: "none"
 });
+export const getServerSideProps = async (context) =>{
+  // const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${context.params.id}`)
+
+  // const article = await res.json()
+  return {
+      props:{
+          
+      }
+  }
+}
 export default function HomePage() {
   const router = useRouter()
   return (
@@ -35,35 +45,8 @@ export default function HomePage() {
           </Typography>
           <Box display="flex" marginTop={8}>
             <Box style={{ marginRight: "16px" }}>
-              {/* <Typography
-                variant="h4"
-                fontWeight="bold"
-                style={{ color: "rebeccapurple" }}
-              > */}
-                {/* 30M */}
-              {/* </Typography> */}
-              {/* <Typography variant="caption">Students learning</Typography> */}
+              
             </Box>
-            {/* <Box style={{ marginRight: "16px" }}>
-              <Typography
-                variant="h4"
-                fontWeight="bold"
-                style={{ color: "rebeccapurple" }}
-              >
-                300M+
-              </Typography>
-              <Typography variant="caption">Oppotunities got</Typography>
-            </Box> */}
-            {/* <Box style={{ marginRight: "16px" }}>
-              <Typography
-                variant="h4"
-                fontWeight="bold"
-                style={{ color: "rebeccapurple" }}
-              >
-                400+
-              </Typography>
-              <Typography variant="caption">Groups created</Typography>
-            </Box> */}
           </Box>
 
           <Box display="flex" marginTop={8}>
@@ -107,8 +90,8 @@ export default function HomePage() {
           maxWidth="800px"
         >
           <Typography fontWeight="bold" variant="h3">
-            <span id="about" style={{ color: "rebeccapurple" }}>What Sets</span> Us Apart
-            
+            <span id="about" style={{ color: "rebeccapurple" }}>Best Speciality</span> about
+            our platform
           </Typography>
           <Box marginTop={6}></Box>
           <Typography
