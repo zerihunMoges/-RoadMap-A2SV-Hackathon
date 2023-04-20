@@ -27,6 +27,8 @@ export const signinWithEmail = async (
       return next()
     }
 
+    console.log("found the user", user)
+
     const isMatched = await bcrypt.compare(req.body.password, user.password)
     if (!isMatched) {
       res.locals.json = {
@@ -36,6 +38,7 @@ export const signinWithEmail = async (
       return next()
     }
 
+    console.log("passwords match as well")
     const token = JWT.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET)
     res.locals.json = {
       statusCode: 200,
@@ -47,7 +50,7 @@ export const signinWithEmail = async (
   } catch (error) {
     res.locals.json = {
       statusCode: 500,
-      message: error
+      message: error.message
     }
     return next()
   }

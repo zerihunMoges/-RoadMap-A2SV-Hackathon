@@ -8,8 +8,8 @@ import { uploadImage } from '../../helpers/uploadImage'
 import { grant_access } from '../../middlewares/access'
 
 const selectionDict = {
-  student: '-__v -password -role -deleted -isVerified',
-  admin: '-__v -password -deleted -isVerified',
+  student: '-__v -password -role',
+  admin: '-__v -password',
 }
 
 const roleDict = {
@@ -232,7 +232,7 @@ export const updateAcademicStatus = async (
     // user.save()
 
     const updatedUser = await User.findById(id).select(
-      '-__v -password -role -isVerified -deleted'
+      '-__v -password -role'
     )
 
     res.locals.json = {

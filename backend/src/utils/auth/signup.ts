@@ -65,14 +65,3 @@ const createUser = async (
   })
 }
 
-const validateUser = async (email: String, otp: String) => {
-  const user = await User.findOne({ email })
-  if (!user) {
-    return false
-  }
-
-  const updatedUser = await User.findByIdAndUpdate(user._id, {
-    $set: { isVerified: true }
-  })
-  return updatedUser
-}

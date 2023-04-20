@@ -16,9 +16,9 @@ const baseConfig = {
     jwt: process.env.JWT_SECRET,
     jwtExp: '100d'
   },
-  cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME || 'heimdall31',
-  cloudinaryApiKey: process.env.CLOUDINARY_API_KEY || 'heimdall1234',
-  cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET || 'ADFJKALSDFAJK'
+  cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME,
+  cloudinaryApiKey: process.env.CLOUDINARY_API_KEY,
+  cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET
 }
 
 let envConfig = {}

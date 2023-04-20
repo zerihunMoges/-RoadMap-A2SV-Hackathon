@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import { Roadmap } from './roadmap.model'
+import { User } from '../user/user.model'
 import JWT from 'jsonwebtoken'
 import { generateToken } from '../../helpers/generateToken'
 import { v4 as uuidv4 } from 'uuid'
@@ -16,17 +17,7 @@ export const fetchAllRoadmaps = async (
   res: Response,
   next: NextFunction
 ) => {
-  // const { _id } = res.locals
-  // const user = await User.findById(_id)
-  // if (!user) {
-  //   res.locals.json = {
-  //     statusCode: 400,
-  //     message: "User doesn't exist"
-  //   }
-  //   return next()
-  // }
-
-  const roadmaps = await Roadmap.find({})
+  const roadmaps = await Roadmap.find({}).populate("lectures")
   res.locals.json = {
     statusCode: 200,
     data: roadmaps
@@ -40,82 +31,79 @@ export const createRoadmap = async (
   res: Response,
   next: NextFunction
 ) => {
-  // const { _id } = res.locals
-  // const user = await User.findById(_id)
-  // if (!user) {
-  //   res.locals.json = {
-  //     statusCode: 400,
-  //     message: "User doesn't exist"
-  //   }
-  //   return next()
-  // }
-
-
+  const { _id } = res.locals
+  const user = await User.findById(_id)
+  if (!user) {
+    res.locals.json = {
+      statusCode: 400,
+      message: "User doesn't exist"
+    }
+    return next()
+  }
   try {
-    console.log(req.body.pitstops)
   const stops = req.body.pitstops
   let finalStops = []
-
-
   for(let stop of stops){
     let finalLectures = []
     for(let lecture of stop.lectures){
-      const newlecture = await Lecture.create({lecture})
+      const newlecture = await Lecture.create({...lecture})
       finalLectures.push(newlecture)
     }
 
-    console.log(finalLectures)
     const newstop = await Pitstop.create({...stop, lectures: finalLectures})
     finalStops.push(newstop)
 
   }
 
-  const roadmap = await (await Roadmap.create({...req.body, pitstops: finalStops})).populate({
+  const roadmap = await (await Roadmap.create({...req.body, pitstops: finalStops, organization: user})).populate({
     path: 'pitstops',
-    // Get friends of friends - populate the 'friends' array for every friend
+    // Get lectures of pitstops - populate the 'lectures' array for every pitstop
     populate: { path: 'lectures' }
   })
 
+  await User.updateMany({ '_id': _id }, { $push: { roadmaps: roadmap._id } })
+
   res.status(200).json({ data: roadmap })
-} catch (e) {
-    res.status(500).json({error: e})
+} catch (error) {
+    res.status(500).json({error: error})
 }
 }
 
 
 
 
-// export const fetchUserById = async (
-//   req: Request,
-//   res: Response,
-//   next: NextFunction
-// ) => {
-//   const { _id } = res.locals
+export const fetchMyOrganizationRoadmaps = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { _id } = res.locals
 
-//   const user = await User.findById(_id)
+  const user = await (await User.findById(_id)).populate({
+    path: "roadmaps",
+    populate: { 
+      path: "pitstops", 
+      populate: { 
+        path: "lectures"
+      }}
+  })
 
-//   if (!user) {
-//     res.locals.json = {
-//       statusCode: 400,
-//       message: 'user not found'
-//     }
-//     return next()
-//   }
+  if (!user) {
+    res.locals.json = {
+      statusCode: 400,
+      message: 'user not found'
+    }
+    return next()
+  }
 
-//   res.locals.json = {
-//     statusCode: 200,
-//     data: _.pick(user, [
-//       '_id',
-//       'email',
-//       'firstName',
-//       'lastName',
-//       'phoneNumber',
-//       'birthDate',
-//       'photoURL'
-//     ])
-//   }
-//   return next()
-// }
+  res.locals.json = {
+    statusCode: 200,
+    data: user.roadmaps
+  }
+  return next()
+}
+
+
 // export const fetchUserByEmail = async (
 //   req: Request,
 //   res: Response,

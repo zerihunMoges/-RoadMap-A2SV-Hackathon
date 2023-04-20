@@ -26,7 +26,7 @@ describe('signin with email', () => {
     const user = User.create({
       email: 'fitsumabyu@gmail.com',
       password: hashedPassword,
-      isVerified: true
+      
     })
 
     const res = await request(app).post('/api/v1/auth/login').send({
@@ -45,7 +45,7 @@ describe('signin with email', () => {
       const user = User.create({
         email: 'fitsumabyu@gmail.com',
         password: hashedPassword,
-        isVerified: true
+        
       })
 
       const res = await request(app).post('/api/v1/auth/login').send({
@@ -62,7 +62,7 @@ describe('signin with email', () => {
       const user = User.create({
         email: 'fitsumabyu@gmail.com',
         password: hashedPassword,
-        isVerified: true
+        
       })
 
       const res = await request(app).post('/api/v1/auth/login').send({
@@ -79,7 +79,6 @@ describe('signin with email', () => {
       const user = User.create({
         email: 'fitsumabyu@gmail.com',
         password: hashedPassword,
-        isVerified: false
       })
 
       const res = await request(app).post('/api/v1/auth/login').send({
