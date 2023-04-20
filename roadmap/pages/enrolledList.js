@@ -1,19 +1,20 @@
 import { Grid,Box } from '@material-ui/core';
-import EnrolledCard from '@/Components/enrolledCard';
-
+import EnrolledCard from '@/components/enrolledCard';
+import {user} from '@/mock'
 export default function CardGrid() {
+
   
 
   return (
-    <Box marginLeft={100}>
-  <Grid container spacing={3}>
-    <Grid item xs={6} sm={6} md={6}>
+    <Box style={{margin:"5%"}}>
+  <Grid container spacing={5}>
+    <Grid item xs={12}  md={4}>
       <EnrolledCard></EnrolledCard>
     </Grid>
-    <Grid item xs={6} sm={6} md={6}>
+    <Grid item xs={12}  md={4}>
       <EnrolledCard></EnrolledCard>
     </Grid>
-    <Grid item xs={6} sm={6} md={6}>
+    <Grid item xs={12}  md={4}>
       <EnrolledCard></EnrolledCard>
     </Grid>
   </Grid>

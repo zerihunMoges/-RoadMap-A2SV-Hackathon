@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -10,22 +9,14 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
 import TimelapseIcon from '@mui/icons-material/Timelapse';
 
-const bull = (
-    <Box
-        component="span"
-        sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-    >
-        •
-    </Box>
-);
 
-export default function RoadMap() {
+export default function RoadMap({data}) {
 
-    
+  
     return (
 
    
-        <Card sx={{ 
+        <Card  sx={{ 
     margin: 2,
     marginTop: 15,
     
@@ -59,21 +50,21 @@ export default function RoadMap() {
  
  }}
   alt="Remy Sharp"
-  src='https://img.freepik.com/free-photo/virtual-classroom-study-space_23-2149178591.jpg?w=2000'
+  src= {data?.image}
   variant="square"
 
 />
             
                 <Typography variant="h6" component="div">
-                    UX Design & User Experience in Design Course
+                    {data.title}
                 </Typography>
                 <ListItem sx={{paddingLeft:0}}>
                   <ListItemAvatar>
-                  <Avatar sx={{width:36, height: 36}} alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+                  <Avatar sx={{width:36, height: 36}} alt={data.author} src="/static/images/avatar/2.jpg" />
                   </ListItemAvatar>
                 
                   <ListItemText 
-                    primary="Africa To silicon Valley"
+                    primary={data.author}
          
                   />
                 </ListItem>
@@ -84,29 +75,29 @@ export default function RoadMap() {
     padding: 0
 
   }}>
-               <> <IconButton aria-label="add to favorites">
+        <><IconButton aria-label="add to favorites">
           <VisibilityIcon />
         </IconButton>
         <Typography sx={{ fontSize: 13}} variant="body2" component="p">
-          3k travelers
+          {data.enrolled}
         </Typography></>
         
        <> <IconButton aria-label="add to favorites">
           <PlayCircleFilledWhiteIcon />
         </IconButton>
         <Typography sx={{ fontSize: 13}} variant="body2" component="p">
-          36 parts
+          {data.pitStops.length} parts
         </Typography></>
 
        <> <IconButton aria-label="add to favorites">
           <TimelapseIcon />
         </IconButton>
         <Typography sx={{ fontSize: 13}} variant="body2" component="p">
-         3 hrs
+         {data.duration}
         </Typography></>
         
       </CardActions>
-      <CardContent> <Rating name="size-small" defaultValue={2}  size="small" />
+      <CardContent> <Rating name="size-small" defaultValue={data.rating}  size="small" readOnly/>
       </CardContent>
         </Card>
 
