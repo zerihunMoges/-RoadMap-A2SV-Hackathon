@@ -2,8 +2,11 @@ import LectureCardd from '@/components/LectureCardd'
 import PitstopCard from '@/components/PitstopCard'
 import React, { useState } from 'react'
 import enrols from "../styles/enrolled.module.css"
+import { Button } from '@mui/material'
+import { useRouter } from 'next/router'
 
 const enrolled = () => {
+  const router = useRouter()
   const [rightSide , setRightSide] = useState([])
   const data = [
     {
@@ -117,6 +120,7 @@ const enrolled = () => {
         
       </div>
       <div className={enrols.leftside}>
+        <Button style={{margin:10}} variant='contained' color="primary" onClick={()=>{router.push('/myStudyGroups')}}>Go to My Study Group</Button>
         {console.log(rightSide)}
         { 
           rightSide.map(
@@ -127,7 +131,6 @@ const enrolled = () => {
         }
        
       </div>
-        
     </div>
   )
 }

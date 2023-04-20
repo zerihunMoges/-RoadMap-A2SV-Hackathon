@@ -19,7 +19,11 @@ const MyApp = (props) => {
         <ThemeProvider theme={lightTheme}>
           <CssBaseline />
           <Header />
+          <div style={{minHeight:"80vh"}}>
           <Component {...pageProps} />
+
+          </div>
+          
           <Footer />   
         </ThemeProvider>
       </CacheProvider>

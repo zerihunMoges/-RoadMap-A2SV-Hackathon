@@ -1,21 +1,28 @@
 .enrolledcontainer{
+    z-index: 1;
+    display: flex;
+    background-color: #EFF0F3;
+    height: 100%;
 }
 .rightsidetitle{
     margin: 1rem;
     color:#4A3C98;
 }
 .rightside{
-    height: 100vh;
-    position: fixed;
+    height: 50vh;
+    /* position: fixed; */
     overflow-y: scroll;
     width: 40%;
+    background-color: white;
+    min-height: 80vh;
 
 }
 .leftside{
-    position: fixed;
+    /* position: fixed; */
     right: 0;
-    height: 100vh;
+    height: 50vh;
     overflow-y: scroll;
     width: 60%;
     background-color: #EFF0F3;
+    min-height: 80vh;
 }

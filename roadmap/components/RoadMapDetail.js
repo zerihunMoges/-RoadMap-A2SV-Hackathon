@@ -6,8 +6,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { IconButton, List, ListItem, ListItemAvatar, ListItemIcon, ListItemText, ListSubheader, Rating, Switch } from '@mui/material';
 import PitstopCard from './PitstopCard';
+import { useRouter } from 'next/router';
 
 function RoadMapDetail({data}) {
+  const router = useRouter()
   // const data = [{title:"the title of the pitstop",  duration:380,}, {title:"Real life is a blessing",  duration:380,},{title:"Not if they fucking for Nyash",  duration:380,}]
   return (
     <div style={{marginRight: "10%", marginLeft: "10%"}}>
@@ -51,7 +53,7 @@ function RoadMapDetail({data}) {
                 
               </CardContent>
               <CardActions>
-                <Button variant="contained" color='primary'  size="large">Enroll</Button>
+                <Button variant="contained" color='primary'  size="large" onClick={()=>router.push('/enrolled')}>Enroll</Button>
               </CardActions>
             </Card>
           </div>

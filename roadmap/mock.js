@@ -6,6 +6,7 @@ export const users = [
         photoUrl: 'henry.jpeg',
         welcomeMessage: 'Hello!',
         role: 'default',
+        roadmaps: []
         
     },
     {

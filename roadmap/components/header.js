@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     textDecoration: "none",
+    color: "#4A3C98"
 
   }
 }));
@@ -53,7 +54,9 @@ function Navbar() {
 
         
         <div style={{display:"flex", gap:40, justifyItems:"center", paddingRight:150}}>
-          <Link className={classes.link} href="/enrolled">Enrolled</Link>
+          <Link className={classes.link} href="/enrolledList">My RoadMaps</Link>
+          {user && <Link className={classes.link} href="/myStudyGroup">Studygroup</Link>}
+
           <Link className={classes.link} href="/roadmaps">RoadMaps</Link>
           {user && <Link className={classes.link} href="/admin">Dashboard</Link>}
           

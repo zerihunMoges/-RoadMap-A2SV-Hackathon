@@ -13,7 +13,7 @@ const StyledLink = styled("a")({
 });
 export default function HomePage() {
   return (
-    <div>
+    <div style={{marginRight:"10%", marginLeft:"10%"}}>
     <Box maxWidth="1500px" mx="auto" marginTop='100px' >
       <Box display="flex">
         <Box
