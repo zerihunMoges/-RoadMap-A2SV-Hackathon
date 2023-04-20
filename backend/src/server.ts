@@ -7,6 +7,7 @@ import cors from 'cors'
 import { connect } from './utils/db/setupDB'
 import authRouter from './utils/auth/auth.router'
 import userRouter from './resources/user/user.router'
+import roadmapRouter from './resources/roadmap/roadmap.router'
 
 export const app = express()
 
@@ -19,7 +20,8 @@ app.use(urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
 app.use('/api/v1/auth', authRouter)
-app.use('/api/v1/user', userRouter)
+app.use('/api/v1/users', userRouter)
+app.use('/api/v1/roadmaps', roadmapRouter)
 app.use((req, res) => {
   res.status(500).json({ data: 'Requested Resource Not found' })
 })

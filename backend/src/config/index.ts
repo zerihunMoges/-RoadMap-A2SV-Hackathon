@@ -7,7 +7,7 @@ const env = process.env.NODE_ENV || 'development'
 
 const baseConfig = {
   env,
-  dbUrl: process.env.MONGODB_URL_DEV || 'mongodb://localhost:27017/roadmap',
+  dbUrl: process.env.MONGODB_URL_DEV || 'mongodb://127.0.0.1:27017/roadmap',
   isDev: env === 'development',
   isTest: env === 'testing',
   port: process.env.PORT || 3000,

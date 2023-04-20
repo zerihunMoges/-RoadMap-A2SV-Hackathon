@@ -117,12 +117,12 @@ export const updateUser = async (
     let user = await User.findByIdAndUpdate(_id, {
       $set: { firstName, lastName, set, nationality }
     })
-    if (file) {
-      const result = await uploadImage(file)
-      if (result) {
-        user.photoURL = result.data.secure_url
-      }
-    }
+    // if (file) {
+    //   const result = await uploadImage(file)
+    //   if (result) {
+    //     user.photoURL = result.data.secure_url
+    //   }
+    // }
     await user.save()
 
     const updatedUser = await User.findById(_id).select('-__v -password -role')
@@ -226,15 +226,15 @@ export const updateAcademicStatus = async (
   try {
     const { _id } = res.locals
     const { id } = req.params
-    let user = await User.findById(id)
-    if (user.semester == 1) {
-      user.set({ semester: 2 })
-    } else if (user.semester == 2 && user.level < 6) {
-      user.set({ semester: 1, level: { $inc: 1 } })
-    } else {
-      user.set({ semester: 0, level: 0 })
-    }
-    user.save()
+    // let user = await User.findById(id)
+    // if (user.semester == 1) {
+    //   user.set({ semester: 2 })
+    // } else if (user.semester == 2 && user.level < 6) {
+    //   user.set({ semester: 1, level: { $inc: 1 } })
+    // } else {
+    //   user.set({ semester: 0, level: 0 })
+    // }
+    // user.save()
 
     const updatedUser = await User.findById(id).select(
       '-__v -password -role -isVerified -deleted'

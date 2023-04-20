@@ -5,5 +5,5 @@ export const config = {
   dbUrl:
     process.env.MONGODB_URL_DEV ||
     process.env.MONGODB_URL ||
-    'mongodb://localhost:27017/roadmap'
+    'mongodb://127.0.0.1:27017/roadmap'
 }
