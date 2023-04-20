@@ -8,22 +8,16 @@ import { Computer as ComputerIcon } from '@material-ui/icons';
 import { School as SchoolIcon } from '@material-ui/icons';
 import { data } from "../mock";
 import { useRouter } from "next/router";
+import { useAuth } from "@/context/AuthContext";
 
 const StyledLink = styled("a")({
   textDecoration: "none"
 });
-export const getServerSideProps = async (context) =>{
-  // const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${context.params.id}`)
 
-  // const article = await res.json()
-  return {
-      props:{
-          
-      }
-  }
-}
 export default function HomePage() {
+  const {roadMaps} = useAuth()
   const router = useRouter()
+  // const data = roadmaps.data;
   return (
     <div style={{marginRight:"10%", marginLeft:"10%"}}>
     <Box maxWidth="1500px" mx="auto" marginTop='100px' >
@@ -90,8 +84,7 @@ export default function HomePage() {
           maxWidth="800px"
         >
           <Typography fontWeight="bold" variant="h3">
-            <span id="about" style={{ color: "rebeccapurple" }}>Best Speciality</span> about
-            our platform
+            <span id="about" style={{ color: "rebeccapurple" }}>What Sets</span> Us Apart
           </Typography>
           <Box marginTop={6}></Box>
           <Typography

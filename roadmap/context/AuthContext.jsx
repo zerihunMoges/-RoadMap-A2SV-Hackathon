@@ -6,7 +6,7 @@ import {
   signOut,
 } from 'firebase/auth'
 import { auth } from '../config/firebase'
-import { getAuth, listUsers } from "firebase/auth";
+
 
 const AuthContext = createContext({})
 
@@ -17,6 +17,15 @@ export const AuthContextProvider = ({children}) => {
   const [roadMaps, setRoadMaps] = useState([])
   const [loading, setLoading] = useState(true)
 //   const [allUsers, setUsers] = useState([])
+
+  useEffect(()=>{
+    async () => {
+      const res = (await fetch(`http://localhost:3000/api/v1/roadmaps`))
+      const roadmaps = await res.json()
+      setRoadMaps(roadmaps.data)
+    }
+
+  }, [])
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
