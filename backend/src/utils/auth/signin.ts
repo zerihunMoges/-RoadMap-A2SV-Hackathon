@@ -36,14 +36,6 @@ export const signinWithEmail = async (
       return next()
     }
 
-    if (!user.isVerified) {
-      res.locals.json = {
-        statusCode: 401,
-        message: 'User is not verified'
-      }
-      return next()
-    }
-
     const token = JWT.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET)
     res.locals.json = {
       statusCode: 200,
@@ -55,63 +47,12 @@ export const signinWithEmail = async (
   } catch (error) {
     res.locals.json = {
       statusCode: 500,
-      message: 'Sign in failed'
+      message: error
     }
     return next()
   }
 }
 
-export const signinWithPhone = async function (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
-  try {
-    if (!req.body.phoneNumber) {
-      return next()
-    }
-    const { phoneNumber, password } = req.body
-    const user = await User.findOne({ phoneNumber: phoneNumber })
-    if (!user) {
-      res.locals.json = {
-        statusCode: 401,
-        message: 'Incorrect phone number or password'
-      }
-      return next()
-    }
-
-    const validPassword = await bcrypt.compare(password, user.password)
-    if (!validPassword) {
-      res.locals.json = {
-        statusCode: 401,
-        message: 'Incorrect phone number or password'
-      }
-      return next()
-    }
-
-    if (!user.isVerified) {
-      res.locals.json = {
-        statusCode: 401,
-        message: 'User is not verified'
-      }
-      return next()
-    }
-
-    const token = JWT.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET)
-    res.locals.json = {
-      statusCode: 200,
-      data: {
-        token: token
-      }
-    }
-    return next()
-  } catch (error) {
-    res.locals.json = {
-      statusCode: 500,
-      message: 'sign in failed'
-    }
-  }
-}
 
 export const signinWithId = async (
   req: Request,
@@ -144,14 +85,6 @@ export const signinWithId = async (
       return next()
     }
 
-    if (!user.isVerified) {
-      res.locals.json = {
-        statusCode: 401,
-        message: 'User is not verified'
-      }
-      return next()
-    }
-
     const token = JWT.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET)
     res.locals.json = {
       statusCode: 200,
@@ -163,7 +96,7 @@ export const signinWithId = async (
   } catch (error) {
     res.locals.json = {
       statusCode: 500,
-      message: 'Sign in failed'
+      message: error
     }
     return next()
   }

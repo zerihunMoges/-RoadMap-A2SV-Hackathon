@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import { User } from './user.model'
 import JWT from 'jsonwebtoken'
-import { OTP } from '../OTP/otp.model'
 import { generateToken } from '../../helpers/generateToken'
 import { v4 as uuidv4 } from 'uuid'
 import _ from 'lodash'
@@ -11,15 +10,13 @@ import { grant_access } from '../../middlewares/access'
 const selectionDict = {
   student: '-__v -password -role -deleted -isVerified',
   admin: '-__v -password -deleted -isVerified',
-  superadmin: '-__v -password -deleted -isVerified'
 }
 
 const roleDict = {
   student: 0,
-  admin: 1,
-  superadmin: 2
+  admin: 1
 }
-const roles = ['student', 'admin', 'superadmin']
+const roles = ['student', 'admin']
 
 export const fetchAllUsers = async (
   req: Request,
@@ -179,7 +176,6 @@ export const removeUser = async (
     })
     await user.save()
 
-    const otp = await OTP.deleteOne({ _id: id })
     res.locals.json = {
       statusCode: 200,
       message: 'Account successfully deleted'
@@ -210,7 +206,6 @@ export const deleteAccount = async (
     return next()
   }
 
-  const otp = await OTP.deleteOne({ _id: _id })
   res.locals.json = {
     statusCode: 200,
     message: 'Account successfully deleted'

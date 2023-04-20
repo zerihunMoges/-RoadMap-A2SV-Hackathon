@@ -5,8 +5,9 @@ export interface IUserInterface {
   lastName: String
   email: String
   password: String
-  isVerified: Boolean
   role: String
+  roadmaps: [mongoose.Schema.Types.ObjectId]
+  enrolled: [mongoose.Schema.Types.ObjectId]
 }
 
 const userSchema: Schema<IUserInterface> = new mongoose.Schema(
@@ -23,7 +24,7 @@ const userSchema: Schema<IUserInterface> = new mongoose.Schema(
     
     email: {
       type: String,
-      required: false
+      required: true
     },
 
     password: {
@@ -32,15 +33,22 @@ const userSchema: Schema<IUserInterface> = new mongoose.Schema(
       minlength: 8,
       maxlength: 1024
     },
-    isVerified: {
-      type: Boolean,
-      default: false
-    },
     role: {
       type: String,
-      enum: ['student', 'admin', 'superadmin'],
-      default: 'student'
-    }
+      enum: ['user', 'admin'],
+      default: 'user',
+      required: false
+    },
+    roadmaps: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref:"Roadmap",
+      required: false
+    },
+    enrolled: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref:"Roadmap",
+      required: false
+    },
   },
   {
     timestamps: {

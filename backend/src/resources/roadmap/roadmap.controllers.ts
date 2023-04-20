@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import { Roadmap } from './roadmap.model'
 import JWT from 'jsonwebtoken'
-import { OTP } from '../OTP/otp.model'
 import { generateToken } from '../../helpers/generateToken'
 import { v4 as uuidv4 } from 'uuid'
 import _ from 'lodash'
