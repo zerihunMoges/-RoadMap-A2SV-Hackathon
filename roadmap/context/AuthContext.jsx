@@ -14,6 +14,7 @@ export const useAuth = () => useContext(AuthContext)
 
 export const AuthContextProvider = ({children}) => {
   const [user, setUser] = useState(null)
+  const [roadMaps, setRoadMaps] = useState([])
   const [loading, setLoading] = useState(true)
 //   const [allUsers, setUsers] = useState([])
 
@@ -66,7 +67,7 @@ export const AuthContextProvider = ({children}) => {
 
 
   return (
-    <AuthContext.Provider value={{ user, login, signup, logout}}>
+    <AuthContext.Provider value={{ user, login, signup, logout, roadMaps, setRoadMaps}}>
       {loading ? null : children}
     </AuthContext.Provider>
   )
