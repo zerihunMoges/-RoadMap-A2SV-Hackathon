@@ -54,8 +54,8 @@ function Navbar() {
 
         
         <div style={{display:"flex", gap:40, justifyItems:"center", paddingRight:150}}>
-          <Link className={classes.link} href="/enrolledList">My RoadMaps</Link>
-          {user && <Link className={classes.link} href="/myStudyGroup">Studygroup</Link>}
+          {user &&<Link className={classes.link} href="/enrolledList">My RoadMaps</Link>}
+          {user && <Link className={classes.link} href="/myStudyGroups">My Study Group</Link>}
 
           <Link className={classes.link} href="/roadmaps">RoadMaps</Link>
           {user && <Link className={classes.link} href="/admin">Dashboard</Link>}

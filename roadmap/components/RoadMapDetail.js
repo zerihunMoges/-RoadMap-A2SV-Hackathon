@@ -7,9 +7,11 @@ import Typography from '@mui/material/Typography';
 import { IconButton, List, ListItem, ListItemAvatar, ListItemIcon, ListItemText, ListSubheader, Rating, Switch } from '@mui/material';
 import PitstopCard from './PitstopCard';
 import { useRouter } from 'next/router';
+import { useAuth } from '@/context/AuthContext';
 
 function RoadMapDetail({data}) {
   const router = useRouter()
+  const {user} = useAuth()
   // const data = [{title:"the title of the pitstop",  duration:380,}, {title:"Real life is a blessing",  duration:380,},{title:"Not if they fucking for Nyash",  duration:380,}]
   return (
     <div style={{marginRight: "10%", marginLeft: "10%"}}>
@@ -48,12 +50,12 @@ function RoadMapDetail({data}) {
             <Card sx={{ border: "none", boxShadow: "none" }}>
               <CardContent>
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                Start your path to a career in project management. In this program, you’ll learn in-demand skills that will have you job-ready in less than six months. No degree or experience is required.
+                  Start your path to a career in project management. In this program, you’ll learn in-demand skills that will have you job-ready in less than six months. No degree or experience is required.
                 </Typography>
                 
               </CardContent>
               <CardActions>
-                <Button variant="contained" color='primary'  size="large" onClick={()=>router.push('/enrolled')}>Enroll</Button>
+                <Button variant="contained" color='primary'  size="large" onClick={()=>{user ? router.push('/enrolled'): router.push('/login')}}>Enroll</Button>
               </CardActions>
             </Card>
           </div>

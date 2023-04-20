@@ -107,8 +107,8 @@ export default function HomePage() {
           maxWidth="800px"
         >
           <Typography fontWeight="bold" variant="h3">
-            <span id="about" style={{ color: "rebeccapurple" }}>Best Speciality</span> about
-            our platform
+            <span id="about" style={{ color: "rebeccapurple" }}>What Sets</span> Us Apart
+            
           </Typography>
           <Box marginTop={6}></Box>
           <Typography
