@@ -40,7 +40,9 @@ function CreateRoadMap() {
     }
     
 
+    const handleAddRoadMap = () =>{
 
+    }
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -136,14 +138,23 @@ function CreateRoadMap() {
       
 
       
+      <div style={{display:"flex", justifyContent:"space-between"}} >
+        <Button sx={{
+            color: 'gray',
+            borderColor: 'gray'
+            }} variant="outlined" startIcon={<AddCircleOutlineRounded />} onClick={handleClickOpen}>
+          Add Pit Stop
+        </Button>
 
         <Button sx={{
-        marginTop: 3,
-       color: 'gray',
-       borderColor: 'gray'
-      }} variant="outlined" startIcon={<AddCircleOutlineRounded />} onClick={handleClickOpen}>
-  Add Pit Stop
-</Button>
+              color: 'gray',
+              borderColor: 'gray'
+              }} variant="outlined" onClick={handleAddRoadMap}>
+          Create
+        </Button>
+      </div>
+
+    
      
 
 <Dialog    fullWidth

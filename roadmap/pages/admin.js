@@ -1,7 +1,9 @@
 import AdminBoardCard from '@/components/AdminBoardCard'
 import React from 'react'
 import style from "../styles/admin.module.css"
+import { useRouter } from 'next/router'
 function admin() {
+  const router = useRouter()
     const data = [
         {
             title: "React Roadmap",
@@ -28,7 +30,7 @@ function admin() {
   return (
     <div className={style.admincontainer}>
         <div className={style.adminroadmapbuttoncontainer}>
-        <button className={style.adminroadmapbutton}> create Roadmap</button>
+        <button className={style.adminroadmapbutton} onClick={()=>{router.push('/createRMap')}}> create Roadmap</button>
         </div>
         
         <div className={style.admincardcontainer}>
